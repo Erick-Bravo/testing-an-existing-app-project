@@ -1,4 +1,5 @@
 const { expect } = require('chai');
+
 const { mergeCategories } = require('../merge-categories');
 
 describe("mergeCategories()", () => {
@@ -12,6 +13,17 @@ describe("mergeCategories()", () => {
     `;
 
     it("should return no <li>s for no categories", () => {
+
+      //Arange
+      const categories = [];
+      const tagName = "li"
+
+      //Act
+      const result = mergeCategories(template, categories, tagName)
+
+      //Assert
+      expect(result).to.not.include(tagName)
+
     });
 
     it("should return a single <li> for one category", () => {
