@@ -37,12 +37,11 @@ describe("mergeCategories()", () => {
       //arrange
       const categories = ['string']
 
-
       //act
       const result = mergeCategories(template, categories, 'li')
 
       //assert
-      
+
       expect(result).to.include("<div>")
       expect(result).to.include("</div>")
       expect(result).to.include("<ul>")
@@ -54,7 +53,23 @@ describe("mergeCategories()", () => {
     });
 
     it("should return an <li> for each category", () => {
-      expect.fail('please write this test');
+
+      //Arrange
+      const categories = ["string1", "string2"];
+
+      //Act
+      const result = mergeCategories(template, categories, "li");
+
+      //Assert
+      expect(result).to.include("<div>");
+      expect(result).to.include("</div>");
+      expect(result).to.include("<ul>");
+      expect(result).to.include("</ul>");
+      expect(result).to.include('<li>string1</li>');
+      expect(result).to.include('<li>string2</li>');
+
+      expect(result).to.not.include('<!-- Content here -->')
+
     });
   });
 
