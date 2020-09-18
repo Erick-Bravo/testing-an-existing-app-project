@@ -34,7 +34,8 @@ describe("saveCategories()", () => {
   it('makes sure the result and the original are different', () => {
     // Arrange
     // Declare any categories and newCategory values here.
-
+    const categories = ['Cat 3', 'Cat 1']
+    const newCategory = 'Cat 2';
     // Act
     const result = saveCategories(categories, newCategory);
 
