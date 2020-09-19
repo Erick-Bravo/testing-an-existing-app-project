@@ -11,3 +11,4 @@ function getBodyFromRequest(req) {
 }
 
 exports.getBodyFromRequest = getBodyFromRequest;
+

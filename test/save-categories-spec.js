@@ -28,7 +28,7 @@ describe("saveCategories()", () => {
     // of two arrays instead of the "equal" method.
     // If the array in result is sorted, what should you
     // compare to?
-    expect(result).to.be.eql( ['Cat 1', 'Cat 2', 'Cat 3' ]);
+    expect(result).to.be.eql(categories);
   });
 
   it('makes sure the result and the original are different', () => {

@@ -1,4 +1,4 @@
-const { expect } = require('chai');
+const { expect, assert } = require('chai');
 
 const { mergeCategories } = require('../merge-categories');
 
@@ -74,6 +74,7 @@ describe("mergeCategories()", () => {
   });
 
   context("using <option> tags", () => {
+
     const template = `
       <div>
         <select>
@@ -81,17 +82,68 @@ describe("mergeCategories()", () => {
         </select>
       </div>
     `;
+    const categories = []
+
+    // act
+    const result = mergeCategories(template, categories, 'option')
+
+
 
     it("should return no <option>s for no categories", () => {
-      expect.fail('please write this test');
+      // arrange
+      const categories = []
+
+      // act
+      const result = mergeCategories(template, categories, 'option')
+
+      //assert
+      expect(result).to.include("<div>")
+      expect(result).to.include("</div>")
+      expect(result).to.include("<select>")
+      expect(result).to.include("</select>")
+
+      expect(result).to.not.include("<option>")
+      expect(result).to.not.include("</option>")
+
+      expect(result).to.not.include('<!-- Content here -->')
     });
 
     it("should return a single <option> for one category", () => {
-      expect.fail('please write this test');
+      // arrange 
+      const categories = ['this']
+
+      // act
+      const result = mergeCategories(template, categories, 'option')
+
+      // assert
+      expect(result).to.include("<div>")
+      expect(result).to.include("</div>")
+      expect(result).to.include("<select>")
+      expect(result).to.include("</select>")
+
+      expect(result).to.include("<option>this</option>")
+
+      expect(result).to.not.include('<!-- Content here -->')
     });
 
     it("should return an <option> for each category", () => {
-      expect.fail('please write this test');
+      // arrange 
+      const categories = ['this', 'that']
+      
+
+      // act 
+      const result = mergeCategories(template, categories, 'option')
+
+      // assert
+      expect(result).to.include("<div>")
+      expect(result).to.include("</div>")
+      expect(result).to.include("<select>")
+      expect(result).to.include("</select>")
+
+      expect(result).to.include("<option>this</option>")
+      expect(result).to.include("<option>that</option>")
+
+      expect(result).to.not.include('<!-- Content here -->')
     });
   });
 });
