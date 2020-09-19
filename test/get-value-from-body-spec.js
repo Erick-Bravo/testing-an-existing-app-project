@@ -7,7 +7,7 @@ describe("The getValueFromBody function", () => {
     const body = "";
     const key = "notThere";
 
-    // Act
+    // Ac
     // Write code to invoke getValueFromBody and collect
     // the result
     const result = getValueFromBody(body, key);

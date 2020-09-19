@@ -145,5 +145,8 @@ describe("mergeCategories()", () => {
 
       expect(result).to.not.include('<!-- Content here -->')
     });
+
+    
   });
 });
+
